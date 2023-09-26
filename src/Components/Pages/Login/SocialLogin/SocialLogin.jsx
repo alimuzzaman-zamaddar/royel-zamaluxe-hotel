@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProviders';
+import Swal from 'sweetalert2';
 
 const SocialLogin = () => {
     const {googleSignIn} = useContext(AuthContext)
@@ -11,6 +12,13 @@ const SocialLogin = () => {
         googleSignIn()
         .then(result => {
             const loggedInUser = result.user
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'LOGIN SUCCESSFUL',
+                showConfirmButton: false,
+                timer: 1500
+              })
             navigate('/')
             console.log(loggedInUser);
          

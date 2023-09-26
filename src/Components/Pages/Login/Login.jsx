@@ -3,6 +3,7 @@ import { Link, useNavigate} from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../Providers/AuthProviders";
 import SocialLogin from "./SocialLogin/SocialLogin";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
@@ -20,6 +21,13 @@ const Login = () => {
       .then((result) => {
         const user = result?.user;
         console.log("created user", user);
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'LOGIN SUCCESSFUL',
+          showConfirmButton: false,
+          timer: 1500
+        })
         navigate("/")
         reset()
       })

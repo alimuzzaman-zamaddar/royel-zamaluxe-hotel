@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../Pages/Providers/AuthProviders';
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  console.log(user?.email);
   const handleLogOut = () => {
     logOut()
       .then(() => {})
@@ -28,7 +29,13 @@ const Navbar = () => {
           <h2 className="text-xs mb-3">The Royal</h2>
         </div>
         <div className="">
-         <Link to="/Login"> <button  className="md:px-8  bg-[#877a52] hover:bg-[#d3aa2f] duration-700 p-2 md:py-3 text-white">LOGIN</button></Link>
+          {user?.email ? (
+             <button onClick={handleLogOut}  className="md:px-8  bg-[#877a52] hover:bg-[#d3aa2f] duration-700 p-2 md:py-3 text-white">LOGOUT</button>
+          ) : (
+            <Link to="/Login"> <button  className="md:px-8  bg-[#877a52] hover:bg-[#d3aa2f] duration-700 p-2 md:py-3 text-white">LOGIN</button></Link>
+          )
+
+          }
         </div>
       </div>
 
