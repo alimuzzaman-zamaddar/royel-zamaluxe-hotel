@@ -10,6 +10,7 @@ import Dinning from '../../Pages/Dinning/Dinning';
 import Resort from '../../Pages/Resort/Resort';
 import Gallery from '../../Pages/Gallery/Gallery';
 import Pool from '../../Pages/Pool/Pool';
+import Slider from '../../Pages/Slider/Slider';
 
 const Home = () => {
     return (
@@ -22,8 +23,9 @@ const Home = () => {
             <Fountain></Fountain>
             <Gallery></Gallery>
             <Pool></Pool>
-            <Food></Food>
             <Dinning></Dinning>
+            <Slider></Slider>
+            <Food></Food>
             <Dessert></Dessert>
         </div>
     );
