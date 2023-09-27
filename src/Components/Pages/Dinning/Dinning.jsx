@@ -33,7 +33,7 @@ const Dinning = () => {
           <div className="overflow-hidden ">
             <img
               className="hover:scale-125 h-[230px] w-full duration-1000"
-              src="https://assets.kerzner.com/api/public/content/774426dc63bc42478257419460690c82?v=9813ca0a&t=w576"
+              src="https://i.ibb.co/807D6ZH/shot-professional-old-chef-dressed-uniform-holding-kitchen-spatula-tongs.jpg"
               alt=""
             />
           </div>
@@ -55,7 +55,7 @@ const Dinning = () => {
           <div className="overflow-hidden">
             <img
               className="hover:scale-125  h-[230px] w-full duration-1000"
-              src="https://assets.kerzner.com/api/public/content/12704f1115944ca3868fb0014b1548bd?v=d138b03c&t=w576"
+              src="https://i.ibb.co/q9xMdj8/chef-kitchen-taking-notes.jpg"
               alt=""
             />
           </div>
@@ -77,7 +77,7 @@ const Dinning = () => {
           <div className="overflow-hidden">
             <img
               className="hover:scale-125  h-[230px] w-full duration-1000"
-              src="https://assets.kerzner.com/api/public/content/31297253f34747609844686cadbad6c0?v=275c4751&t=w576"
+              src="https://i.ibb.co/9shrWj5/portrait-smiling-chef-uniform.jpg"
               alt=""
             />
           </div>
@@ -99,7 +99,7 @@ const Dinning = () => {
           <div className="overflow-hidden">
             <img
               className="hover:scale-125  h-[230px] w-full duration-1000"
-              src="https://assets.kerzner.com/api/public/content/3f43affb19014bbaa9c39012ee2f87ba?v=8d44f544&t=w576"
+              src="https://i.ibb.co/z8X9W65/happy-young-cook-uniform-holding-salad.jpg"
               alt=""
             />
           </div>

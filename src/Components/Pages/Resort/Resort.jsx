@@ -41,8 +41,8 @@ const Resort = () => {
             >
               This Dubai icon is the ultimate holiday destination for both couples
               and families to make lifetime memories. From thrill-seekers to
-              foodies, sun lovers to explorers, there is an unforgettable
-              experience for everyone.
+              foodies, sun lovers to explorers, unforgettable
+              experience.
             </p>
             <button
               className="px-8 bg-[#877a52] hover:bg-[#d3aa2f] duration-700 py-3 text-white"
