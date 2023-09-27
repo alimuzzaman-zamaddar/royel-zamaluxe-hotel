@@ -30,7 +30,7 @@ const SocialLogin = () => {
             <div className="divider"></div> 
             <h1 className='text-center text-xl font-bold pb-5 font-serif'>Social Login</h1>
             <div className="ml-[30px]">
-            <button onClick={handleGoogleLogin} className='btn btn-outline bg-green-400 text-black w-[94%] mx-auto '>Google</button>
+            <button onClick={handleGoogleLogin} className='btn btn-outline bg-yellow-950 text-white w-[94%] mx-auto '>Google</button>
             </div>
         </div>
     );

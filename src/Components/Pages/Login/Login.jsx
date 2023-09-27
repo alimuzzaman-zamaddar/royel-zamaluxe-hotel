@@ -91,7 +91,7 @@ const Login = () => {
             </div>
           </form>
           <SocialLogin></SocialLogin>
-          <span className="text-center">
+          <span className="text-center pt-5">
             Already have an account
             <strong>
               <Link to="/register"> Register Fast </Link>

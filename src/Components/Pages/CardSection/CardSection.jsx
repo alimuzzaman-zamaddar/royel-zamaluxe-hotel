@@ -29,17 +29,15 @@ const CardSection = () => {
   }, []);
   console.log(rooms);
 
-
- 
   const handleBooking = (room) => {
-  const { imageSrc,rating, price,  _id } = room;
+    const { imageSrc, rating, price, _id } = room;
 
     if (user?.email) {
       const bookedRoom = {
         bookedId: _id,
-        imageSrc:room.imageSrc,
-        rating:room.rating,
-        price:room.price,
+        imageSrc: room.imageSrc,
+        rating: room.rating,
+        price: room.price,
         email: user?.email,
       };
       fetch("http://localhost:5000/booking", {
@@ -119,16 +117,18 @@ const CardSection = () => {
                   <p className="text-blue-950">{room.rating} Stars</p>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-3xl font-bold text-gray-900 dark:text-white">
-                    ${room.price} <span className="text-xl">++</span>
+                 <div className="flex items-center">
+                 <span className="text-3xl font-bold text-gray-900 dark:text-white">
+                    ${room.price} 
                   </span>
-                  <a
+                  <span className="ml-1 text-xl font-bold">++</span>
+                 </div>
+                  <button
                     className="px-8 bg-[#877a52] hover:bg-[#d3aa2f] duration-700 py-3 text-white"
-                    href="#"
                     onClick={() => handleBooking(room)}
                   >
-                    <p>Book Now</p>
-                  </a>
+                    Book Now
+                  </button>
                 </div>
               </Card>
             </div>
