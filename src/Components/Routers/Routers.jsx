@@ -9,6 +9,7 @@ import CardSection from "../Pages/CardSection/CardSection";
 import Dinning from "../Pages/Dinning/Dinning";
 import Entertainment from "../Pages/Entertainment/Entertainment";
 import Food from "../Pages/Food/Food";
+import MyBooking from "../Pages/MyBooking/MyBooking";
 
 const router = createBrowserRouter([
     {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
         {
             path: '/Foods',
             element: <Food></Food>
+        },
+        {
+            path: '/myBooking',
+            element: <MyBooking></MyBooking>
         },
 
 

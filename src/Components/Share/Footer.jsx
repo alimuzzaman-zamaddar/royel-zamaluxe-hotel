@@ -20,54 +20,7 @@ const Footer = () => {
             THE ROYEL ZAMALUXE
           </h1>
         </div>
-        <div className="">
-          <form className="flex max-w-xl px-3 flex-col gap-4 mx-auto py-11 text-[#dcb84e] ">
-            <div>
-              <div className="mb-2 block ">
-                <Label
-                  className="text-[#dcb84e]"
-                  htmlFor="email1"
-                  value="Your email"
-                />
-              </div>
-              <TextInput
-                id="email1"
-                placeholder="Name@Email.com"
-                required
-                type="email"
-                data-aos="fade-right"
-                data-aos-offset="300"
-                data-aos-easing="ease-in-sine"
-              />
-            </div>
-            <div>
-              <div className="mb-2 block ">
-                <Label
-                  className="text-[#dcb84e]"
-                  htmlFor="phone"
-                  value="Your phone"
-                />
-              </div>
-              <TextInput
-                id="phone"
-                required
-                type="text"
-                data-aos="fade-left"
-                data-aos-offset="300"
-                data-aos-easing="ease-in-sine"
-              />
-            </div>
-            <Button
-              data-aos="fade-right"
-              data-aos-offset="300"
-              data-aos-easing="ease-in-sine"
-              className="bg-[#877a52] hover:bg-[#d3aa2f] duration-700 py-3 text-white"
-              type="submit"
-            >
-              Send
-            </Button>
-          </form>
-        </div>
+       
       </div>
       <div
         className="grid grid-cols-1 md:grid-cols-4 font-serif py-5 border-b-[1px] border-[#dcb84e] w-[95%] mx-auto "
@@ -110,7 +63,51 @@ const Footer = () => {
           <p className="mb-2">BAR AND PARTY</p>
           <p className="mb-2">MEDICALE SERVICE</p>
         </div>
+         
       </div>
+      <div className=""                 data-aos="fade-up"
+                data-aos-offset="100"
+                data-aos-easing="ease-in-sine">
+          <form className="flex max-w-xl px-3 flex-col gap-4 mx-auto py-11 text-[#dcb84e] ">
+            <div>
+              <div className="mb-2 block ">
+                <Label
+                  className="text-[#dcb84e]"
+                  htmlFor="email1"
+                  value="Your email"
+                />
+              </div>
+              <TextInput
+                id="email1"
+                placeholder="Name@Email.com"
+                required
+                type="email"
+              />
+            </div>
+            <div>
+              <div className="mb-2 block ">
+                <Label
+                  className="text-[#dcb84e]"
+                  htmlFor="phone"
+                  value="Your phone"
+                />
+              </div>
+              <TextInput
+                id="phone"
+                required
+                type="text"
+
+              />
+            </div>
+            <Button
+           
+              className="bg-[#877a52] hover:bg-[#d3aa2f] duration-700 py-3 text-white"
+              type="submit"
+            >
+              Send
+            </Button>
+          </form>
+        </div>
       <div className=" text-center py-11">
         <p>@copy All right reserved to Royle Zamaluxe </p>
       </div>

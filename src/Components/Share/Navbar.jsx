@@ -30,7 +30,11 @@ const Navbar = () => {
         </div>
         <div className="">
           {user?.email ? (
+
+            <div className="">
+              <Link to='/myBooking'> <button   className="md:px-8  bg-[#877a52] hover:bg-[#d3aa2f] duration-700 p-2 md:py-3 text-white mr-5">MY BOOKING</button></Link>
              <button onClick={handleLogOut}  className="md:px-8  bg-[#877a52] hover:bg-[#d3aa2f] duration-700 p-2 md:py-3 text-white">LOGOUT</button>
+            </div>
           ) : (
             <Link to="/Login"> <button  className="md:px-8  bg-[#877a52] hover:bg-[#d3aa2f] duration-700 p-2 md:py-3 text-white">LOGIN</button></Link>
           )

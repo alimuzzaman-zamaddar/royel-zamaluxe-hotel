@@ -30,7 +30,7 @@ const CardSection = () => {
   console.log(rooms);
 
   const handleBooking = (room) => {
-    const { imageSrc, rating, price, _id } = room;
+    const { imageSrc, rating, price, _id,description } = room;
 
     if (user?.email) {
       const bookedRoom = {
@@ -39,8 +39,9 @@ const CardSection = () => {
         rating: room.rating,
         price: room.price,
         email: user?.email,
+        description:room.description,
       };
-      fetch("http://localhost:5000/booking", {
+      fetch("https://royal-zamaluxe-hotel-server.vercel.app/booking", {
         method: "POST",
         headers: {
           "content-type": "application/json",
