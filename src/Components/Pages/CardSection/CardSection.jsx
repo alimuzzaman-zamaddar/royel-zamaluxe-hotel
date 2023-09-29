@@ -5,7 +5,7 @@ import "aos/dist/aos.css";
 import { Card } from "flowbite-react";
 import { FaStar } from "react-icons/fa";
 import { AuthContext } from "../Providers/AuthProviders";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const CardSection = () => {
@@ -29,50 +29,6 @@ const CardSection = () => {
   }, []);
   console.log(rooms);
 
-  const handleBooking = (room) => {
-    const { imageSrc, rating, price, _id,description } = room;
-
-    if (user?.email) {
-      const bookedRoom = {
-        bookedId: _id,
-        imageSrc: room.imageSrc,
-        rating: room.rating,
-        price: room.price,
-        email: user?.email,
-        description:room.description,
-      };
-      fetch("https://royal-zamaluxe-hotel-server.vercel.app/booking", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(bookedRoom),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.insertedId) {
-            Swal.fire({
-              position: "top-end",
-              icon: "success",
-              title: "Your Room Is Booked",
-              showConfirmButton: false,
-              timer: 1500,
-            });
-          }
-        });
-    } else {
-      Swal.fire({
-        title: "You Need to Login to Book Rooms",
-        icon: "primary",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Go to login",
-      }).then((result) => {
-        navigate("/login");
-      });
-    }
-  };
 
   return (
     <div className="bg-orange-50">
@@ -118,18 +74,17 @@ const CardSection = () => {
                   <p className="text-blue-950">{room.rating} Stars</p>
                 </div>
                 <div className="flex items-center justify-between">
-                 <div className="flex items-center">
-                 <span className="text-3xl font-bold text-gray-900 dark:text-white">
-                    ${room.price} 
-                  </span>
-                  <span className="ml-1 text-xl font-bold">++</span>
-                 </div>
-                  <button
-                    className="px-8 bg-[#877a52] hover:bg-[#d3aa2f] duration-700 py-3 text-white"
-                    onClick={() => handleBooking(room)}
-                  >
-                    Book Now
-                  </button>
+                  <div className="flex items-center">
+                    <span className="text-3xl font-bold text-gray-900 dark:text-white">
+                      ${room.price}
+                    </span>
+                    <span className="ml-1 text-xl font-bold">++</span>
+                  </div>
+                  <Link to={`/rooms/${room._id}`}>
+                    <button className="px-8 bg-[#877a52] hover:bg-[#d3aa2f] duration-700 py-3 text-white">
+                      Book Now
+                    </button>
+                  </Link>
                 </div>
               </Card>
             </div>

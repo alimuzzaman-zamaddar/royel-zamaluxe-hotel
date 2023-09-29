@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { AuthContext } from "../Providers/AuthProviders";
 import SocialLogin from "./SocialLogin/SocialLogin";
 import Swal from "sweetalert2";
@@ -8,11 +8,13 @@ import Swal from "sweetalert2";
 const Login = () => {
   const { signIn } = useContext(AuthContext);
   const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
 
   const {
     register,
     handleSubmit,
     reset,
+    control,
     formState: { errors },
   } = useForm();
 
@@ -28,16 +30,26 @@ const Login = () => {
           showConfirmButton: false,
           timer: 1500,
         });
-        navigate("/");
+        navigate(from, { replace: true });
         reset();
       })
       .catch((error) => console.log(error));
   };
   return (
-    <div className="" style={{ backgroundImage: "url('https://i.ibb.co/tbnvt70/blackboard-among-mexican-food.jpg')", backgroundSize: 'cover', backgroundRepeat: 'no-repeat'}}>
+    <div
+      className=""
+      style={{
+        backgroundImage:
+          "url('https://i.ibb.co/tbnvt70/blackboard-among-mexican-food.jpg')",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       <div className="w-[35%] mx-auto py-28">
         <div className="card py-10 bg-orange-50 text-black">
-          <h1 className="text-center text-6xl font-bold font-serif">Please Login</h1>
+          <h1 className="text-center text-6xl font-bold font-serif">
+            Please Login
+          </h1>
           <form onSubmit={handleSubmit(onSubmit)} className="card-body">
             <div className="form-control">
               <label className="label">
@@ -81,7 +93,6 @@ const Login = () => {
                 </p>
               )}
             </div>
-
             <div className="form-control mt-6">
               <input
                 className="md:px-8  bg-[#877a52] hover:bg-[#d3aa2f] rounded-lg duration-700 p-2 md:py-3 text-white"
