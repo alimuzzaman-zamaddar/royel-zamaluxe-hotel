@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Controller, useForm } from "react-hook-form";
 import { AuthContext } from "../Providers/AuthProviders";
 import SocialLogin from "./SocialLogin/SocialLogin";
@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 const Login = () => {
   const { signIn } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
   const {

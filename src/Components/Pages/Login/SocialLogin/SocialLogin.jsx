@@ -1,11 +1,13 @@
 import React, { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProviders';
 import Swal from 'sweetalert2';
 
 const SocialLogin = () => {
     const {googleSignIn} = useContext(AuthContext)
     const navigate = useNavigate();
+    const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   
     const handleGoogleLogin = () => {
@@ -19,8 +21,8 @@ const SocialLogin = () => {
                 showConfirmButton: false,
                 timer: 1500
               })
-            navigate('/')
             console.log(loggedInUser);
+            navigate(from, { replace: true });
          
         })
         .catch((error) => console.log(error));
