@@ -1,6 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import Swal from "sweetalert2";
 import { Card } from "flowbite-react";
 import { AuthContext } from "../Providers/AuthProviders";
 

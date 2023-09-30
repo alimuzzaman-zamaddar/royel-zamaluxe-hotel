@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, } from "react";
 import { AuthContext } from "../Providers/AuthProviders";
-import { Navigate, useLoaderData, useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { Controller, useForm } from "react-hook-form";
 import { Card } from "flowbite-react";
 import Swal from "sweetalert2";
@@ -10,7 +10,6 @@ const Booking = () => {
   const roomBooking = useLoaderData();
   const navigate = useNavigate();
 
-//   console.log(roomBooking);
   const {
     register,
     handleSubmit,

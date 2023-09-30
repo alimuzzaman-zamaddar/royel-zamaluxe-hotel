@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { Card } from "flowbite-react";
 import { FaStar } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Food = () => {
   const [foods, setFoods] = useState([]);
@@ -14,7 +15,6 @@ const Food = () => {
         console.log(error);
       });
   }, []);
-  console.log(foods);
 
   return (
     <div>
@@ -36,8 +36,8 @@ const Food = () => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-5 py-20  px-5">
           {foods.map((food) => (
-            <div className="">
-              <Card
+            <div key={food._id} className="">
+              <Card 
                 className="bg-gradient-to-r h-[550px] from-blue-950 via-blue-500 to-blue-950 "
                 data-aos="fade-up"
                 data-aos-duration="1000"
@@ -69,11 +69,15 @@ const Food = () => {
                     <span className="text-3xl font-bold text-white">
                       ${food.price}
                     </span>
-                    <span className="ml-1 text-xl font-bold text-white">++</span>
+                    <span className="ml-1 text-xl font-bold text-white">
+                      ++
+                    </span>
                   </div>
-                  <button className="px-8 bg-[#877a52] hover:bg-[#d3aa2f] duration-700 py-3 text-white">
-                    Order Now
-                  </button>
+                  <Link to={`/Foods/${food._id}`}>
+                    <button className="px-8 bg-[#877a52] hover:bg-[#d3aa2f] duration-700 py-3 text-white">
+                      Order Now
+                    </button>
+                  </Link>
                 </div>
               </Card>
             </div>

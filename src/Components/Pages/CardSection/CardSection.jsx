@@ -1,12 +1,10 @@
-import { React, useContext, useEffect, useState } from "react";
+import { React, useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 import { Card } from "flowbite-react";
 import { FaStar } from "react-icons/fa";
-import { AuthContext } from "../Providers/AuthProviders";
-import { Link, useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
+import { Link} from "react-router-dom";
 
 const CardSection = () => {
   useEffect(() => {
@@ -15,9 +13,7 @@ const CardSection = () => {
       once: false,
     });
   }, []);
-  const { user } = useContext(AuthContext);
   const [rooms, setRooms] = useState([]);
-  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("https://royal-zamaluxe-hotel-server.vercel.app/rooms")
@@ -27,7 +23,6 @@ const CardSection = () => {
         console.log(error);
       });
   }, []);
-  console.log(rooms);
 
 
   return (

@@ -11,6 +11,8 @@ import Entertainment from "../Pages/Entertainment/Entertainment";
 import Food from "../Pages/Food/Food";
 import MyBooking from "../Pages/MyBooking/MyBooking";
 import Booking from "../Pages/Booking/Booking";
+import Order from "../Pages/Order/Order";
+import MyOrder from "../Pages/MyOrder/MyOrder";
 
 const router = createBrowserRouter([
     {
@@ -52,8 +54,18 @@ const router = createBrowserRouter([
             
         },
         {
+            path: '/Foods/:id',
+            element: <Order></Order>,
+            loader:  ({params}) => fetch(`https://royal-zamaluxe-hotel-server.vercel.app/Foods/${params.id}`),
+            
+        },
+        {
             path: '/myBooking',
             element: <MyBooking></MyBooking>
+        },
+        {
+            path: '/myOrder',
+            element: <MyOrder></MyOrder>
         },
 
 
