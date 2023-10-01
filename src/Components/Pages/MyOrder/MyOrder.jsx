@@ -23,12 +23,12 @@ const MyOrder = () => {
           <Card key={order._id} horizontal imgSrc={order.imageSrc}>
             <h5 className="text-lg font-bold tracking-tight text-gray-900 dark:text-white">
               
-              <p> Room Price :{order.price}</p>
+              <p> Food Price :{order.price}</p>
               <p> Date Of Order :{order?.date}</p>
               <p> Time Of Order :{order?.time}</p>
             </h5>
             <p className="font-normal text-gray-700 dark:text-gray-400">
-            <p> Description:{order.description}</p>
+            <p> <span className="font-bold">Served with: </span>{order.description}</p>
             </p>
           </Card>
         ))}
