@@ -1,11 +1,10 @@
 "use client";
 import { Carousel } from "flowbite-react";
+import { Link } from "react-router-dom";
 const Banner = () => {
   return (
     <div className="relative bg-black">
-      <Carousel
-        className="h-screen"
-      >
+      <Carousel className="h-screen">
         <img
           alt="..."
           src="https://assets.kerzner.com/api/public/content/22a13cd86bef48b28e9ff17642419a6c?v=bc38f902&t=w1920"
@@ -29,9 +28,11 @@ const Banner = () => {
           <h1 className="md:text-2xl font-extrabold uppercase text-center text-white font-serif bg-black bg-opacity-20">
             explore the most luxerous hotel in the world
             <div className="">
-              <button className="px-16 mt-10 md:text-2xl bg-[#877a52] hover:bg-[#d3aa2f] duration-700 py-3 text-white">
-                Book Now
-              </button>
+              <Link to="/Stays">
+                <button className="px-16 mt-10 md:text-2xl bg-[#877a52] hover:bg-[#d3aa2f] duration-700 py-3 text-white">
+                  Book Now
+                </button>
+              </Link>
             </div>
           </h1>
           <p></p>

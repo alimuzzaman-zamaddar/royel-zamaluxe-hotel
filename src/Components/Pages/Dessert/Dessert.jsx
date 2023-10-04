@@ -1,4 +1,9 @@
+import Swal from "sweetalert2";
+
 const Dessert = () => {
+   const handleOrder = () => {
+    Swal.fire('Order Is Under Development')
+   }
     return (
       <div className="bg-slate-50">
         <div className="py-20  md:flex w-[90%] mx-auto">
@@ -37,11 +42,11 @@ const Dessert = () => {
                 data-aos="zoom-in"
                 data-aos-duration="1000"
               >
-                <button className="px-8 bg-blue-700 hover:bg-[#d3aa2f] duration-700 py-3 text-white">
-                  Explore
+                <button onClick={handleOrder} className="px-8 bg-blue-700 hover:bg-[#d3aa2f] duration-700 py-3 text-white">
+                  Order Now
                 </button>
                 <button className="px-8 bg-transparent border-2 border-blue-950 hover:bg-[#d3aa2f] duration-700 py-3 text-blue-950">
-                  Reserve
+                  Explore
                 </button>
               </div>
             </div>

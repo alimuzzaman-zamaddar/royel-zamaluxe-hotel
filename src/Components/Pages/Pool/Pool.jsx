@@ -32,7 +32,7 @@ const Pool = () => {
               </p>
               <div className="flex justify-between" data-aos="zoom-in" data-aos-duration="1000">
                 <button className="px-8 bg-blue-700 hover:bg-[#d3aa2f] duration-700 py-3 text-white">
-                  Explore
+                  Details
                 </button>
                 <button className="px-8 bg-[#544312] hover:bg-[#d3aa2f] duration-700 py-3 text-white">
                   Explore
