@@ -13,6 +13,7 @@ import MyBooking from "../Pages/MyBooking/MyBooking";
 import Booking from "../Pages/Booking/Booking";
 import Order from "../Pages/Order/Order";
 import MyOrder from "../Pages/MyOrder/MyOrder";
+import DinningExplore from "../Pages/Dinning/DinningExplore";
 
 const router = createBrowserRouter([
     {
@@ -66,6 +67,11 @@ const router = createBrowserRouter([
         {
             path: '/myOrder',
             element: <MyOrder></MyOrder>
+        },
+        {
+            path: '/dinning/:id',
+            element: <DinningExplore></DinningExplore>,
+            loader:  ({params}) => fetch(`https://royal-zamaluxe-hotel-server.vercel.app/dinning/${params.id}`),
         },
 
 

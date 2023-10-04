@@ -2,12 +2,25 @@
 import { React, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 const Dinning = () => {
   useEffect(() => {
     AOS.init({
       duration: 800,
       once: false,
     });
+  }, []);
+
+  const [chefs, setChefs] = useState([]);
+
+  useEffect(() => {
+    fetch("https://royal-zamaluxe-hotel-server.vercel.app/dinning")
+      .then((res) => res.json())
+      .then((data) => setChefs(data))
+      .catch((error) => {
+        console.log(error);
+      });
   }, []);
   return (
     <div className="bg-[#faf5eb] py-20">
@@ -29,94 +42,30 @@ const Dinning = () => {
         </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-4 gap-5 px-3 md:w-[1300px] mx-auto">
-        <div className="" data-aos="flip-left">
-          <div className="overflow-hidden ">
-            <img
-              className="hover:scale-125 h-[230px] w-full duration-1000"
-              src="https://i.ibb.co/807D6ZH/shot-professional-old-chef-dressed-uniform-holding-kitchen-spatula-tongs.jpg"
-              alt=""
-            />
+        {chefs.map((chef) => (
+          <div key={chef._id} className="" data-aos="flip-left">
+            <div className="overflow-hidden ">
+              <img
+                className="hover:scale-125 h-[230px] w-full duration-1000"
+                src={chef.image}
+                alt=""
+              />
+            </div>
+            <h1 className="text-blue-950 py-5 text-2xl">{chef.name}</h1>
+            <p className="text-blue-950 mb-6">{chef.description}</p>
+            <div className="flex justify-between ">
+              <button className="px-8 bg-[#171255] hover:bg-[#d3aa2f] duration-700 py-3 text-white mb-4">
+                Reserve
+              </button>
+              <br />
+              <Link to={`/dinning/${chef._id}`}>
+             <button className="px-8 bg-transparent border-2 border-[#171255] hover:bg-[#d3aa2f] duration-700 py-3 text-[#171255] mb-4">
+                Explore
+              </button>
+             </Link>
+            </div>
           </div>
-          <h1 className="text-blue-950 py-5 text-2xl">Nobu By The Beach</h1>
-          <p className="text-blue-950 mb-6">
-            Renowned worldwide for its distinctive Japanese-Peruvian cuisine,
-            chef Nobu Matsuhisa debuts his first ever daytime poolside and beach
-            restaurant.
-          </p>
-          <button className="px-8 bg-[#171255] hover:bg-[#d3aa2f] duration-700 py-3 text-white mb-4">
-            Reserve
-          </button>
-          <br />
-          <button className="px-[33px] border-2 border-[#171255] bg-transparent hover:bg-[#d3aa2f] duration-700 py-3 text-[#171255]">
-            Explore
-          </button>
-        </div>
-        <div className="" data-aos="flip-left">
-          <div className="overflow-hidden">
-            <img
-              className="hover:scale-125  h-[230px] w-full duration-1000"
-              src="https://i.ibb.co/q9xMdj8/chef-kitchen-taking-notes.jpg"
-              alt=""
-            />
-          </div>
-          <h1 className="text-blue-950 py-5 text-2xl">Dinner By Heston </h1>
-          <p className="text-blue-950 mb-6">
-            Heston Blumenthal delights diners through a pioneering and
-            intriguing menu with emphasis on multi-sensory dishes that are
-            playful and.
-          </p>
-          <button className="px-8 bg-[#171255] hover:bg-[#d3aa2f] duration-700 py-3 text-white mb-4">
-            Reserve
-          </button>
-          <br />
-          <button className="px-[33px] border-2 border-[#171255] bg-transparent hover:bg-[#d3aa2f] duration-700 py-3 text-[#171255]">
-            Explore
-          </button>
-        </div>
-        <div className="" data-aos="flip-left">
-          <div className="overflow-hidden">
-            <img
-              className="hover:scale-125  h-[230px] w-full duration-1000"
-              src="https://i.ibb.co/9shrWj5/portrait-smiling-chef-uniform.jpg"
-              alt=""
-            />
-          </div>
-          <h1 className="text-blue-950 py-5 text-2xl">La Mar by Gastón</h1>
-          <p className="text-blue-950 mb-6">
-            The brilliant James Beard-award winning chef José Andrés, showcases
-            the rich cutting-edge flavours and flair of Spanish cuisine in a
-            vibrant atmosphere.
-          </p>
-          <button className="px-8 bg-[#171255] hover:bg-[#d3aa2f] duration-700 py-3 text-white mb-4">
-            Reserve
-          </button>
-          <br />
-          <button className="px-[33px] border-2 border-[#171255] bg-transparent hover:bg-[#d3aa2f] duration-700 py-3 text-[#171255]">
-            Explore
-          </button>
-        </div>
-        <div className="" data-aos="flip-left">
-          <div className="overflow-hidden">
-            <img
-              className="hover:scale-125  h-[230px] w-full duration-1000"
-              src="https://i.ibb.co/z8X9W65/happy-young-cook-uniform-holding-salad.jpg"
-              alt=""
-            />
-          </div>
-          <h1 className="text-blue-950 py-5 text-2xl">Jaleo by José Andrés</h1>
-          <p className="text-blue-950 mb-6">
-            cutting-edge flavours and flair ofdistinctive Japanese-Peruvian
-            cuisine, chef Nobu Matsuhisa debuts his first ever daytime poolside
-            and beach.
-          </p>
-          <button className="px-8 bg-[#171255] hover:bg-[#d3aa2f] duration-700 py-3 text-white mb-4">
-            Reserve
-          </button>
-          <br />
-          <button className="px-[33px] border-2 border-[#171255] bg-transparent hover:bg-[#d3aa2f] duration-700 py-3 text-[#171255]">
-            Explore
-          </button>
-        </div>
+        ))}
       </div>
     </div>
   );
