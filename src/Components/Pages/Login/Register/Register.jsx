@@ -1,10 +1,12 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProviders";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
+  const navigate = useNavigate()
   const {
     register,
     handleSubmit,
@@ -14,46 +16,28 @@ const Register = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    if (data.password !== data.confirmPassword) {
-      // Passwords do not match
-      Swal.fire({
-        icon: "error",
-        title: "Password Error",
-        text: "Passwords do not match.",
-      });
-      return;
-    }
 
-    createUser(data.email, data.password).then((result) => {
-      const loggedUser = result.user;
-      console.log(loggedUser);
-      updateUserProfile(data.name, data.photoURL)
-        .then(() => {
-          const savedUser = { name: data.name, email: data.email };
-          fetch("https://zamaddar-sports-club-server.vercel.app/users", {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(savedUser),
-          })
-            .then((res) => res.json())
-            .then((data) => {
-              if (data.insertedId) {
-                reset();
-                Swal.fire({
-                  position: "top-end",
-                  icon: "success",
-                  title: "User created successfully.",
-                  showConfirmButton: false,
-                  timer: 1500,
-                });
-                navigate("/");
-              }
-            });
-        })
-        .catch((error) => console.log(error));
+
+    
+    createUser(data.email, data.password)
+  .then((userCredential) => {
+    const user = userCredential.user;
+    console.log(user);
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "REGISTRATION SUCCESSFUL",
+      showConfirmButton: false,
+      timer: 1500,
     });
+    navigate('/')
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log(errorCode);
+    console.log(errorMessage);
+  });
   };
 
   return (
