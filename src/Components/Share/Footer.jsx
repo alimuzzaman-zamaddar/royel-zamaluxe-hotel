@@ -36,19 +36,15 @@ const Footer = () => {
           <h1 className="mb-6 text-2xl">SOCIAL LINKS</h1>
           <div className="grid grid-cols-2 gap-5">
             <span>
-              {" "}
               <FaFacebook className="mb-2 text-4xl text-[#dcb84e] animate-pulse"></FaFacebook>
             </span>
             <span>
-              {" "}
               <FaInstagramSquare className="mb-2 text-4xl text-[#dcb84e] animate-pulse"></FaInstagramSquare>
             </span>
             <span>
-              {" "}
               <FaTwitterSquare className="mb-2 text-4xl text-[#dcb84e] animate-pulse"></FaTwitterSquare>
             </span>
             <span>
-              {" "}
               <FaYoutube className="mb-2 text-4xl text-[#dcb84e] animate-pulse"></FaYoutube>
             </span>
             <span>
