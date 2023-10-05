@@ -17,7 +17,9 @@ const MyOrder = () => {
 
   return (
     <div className="py-5">
-        <h1 className="font-serif text-4xl text-center py-6 text-[#dcb84e]">YOUR ORDERED FOODS</h1>
+{orders?.length == 0 ? <h1 className="font-serif uppercase text-4xl text-center py-6 text-[#dcb84e]">you haven't Order any food yet</h1> :
+<>
+<h1 className="font-serif text-4xl text-center py-6 text-[#dcb84e]">YOUR ORDERED FOODS</h1>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
         {orders.map((order) => (
           <Card key={order._id} horizontal imgSrc={order.imageSrc}>
@@ -33,6 +35,9 @@ const MyOrder = () => {
           </Card>
         ))}
       </div>
+</>
+
+}
     </div>
   );
 };
